@@ -28,47 +28,58 @@ PRINT (Varje person ska betala ‘summaPerVänn’ kr);
 // Startkoden är 100% frivillig och kan tas bort eller skrivas om
 /*
 
-play();
+SET variabel ordbok = [FOUR, FOUL, FOOL, FOOT, FORT, FORE, FIRE, FIVE]; // Innehåller ALLA ord i det engelska språket
+SET variabel startOrd till "FOUR";
+SET variabel slutOrd till "FIVE";
+SET variabel gissningar = 0
+SET variabel inmatning = 0
 
-FUNCTION play()
-    SET variabel ordbok = [FOUR, FOUL, FOOL, FOOT, FORT, FORE, FIRE, FIVE]; // Innehåller ALLA ord i det engelska språket
-    SET variabel startOrd till "FOUR";
-    SET variabel slutordOrd till "FIVE";
-    SET variabel nyttOrd = 0
+FUNKTION isOneLetterApart(wordOne, wordTwo)
+
+    SET variabel diffCount = 0;
+
+    LOOP för varje position i wordOne
+        IF bokstaven i wordOne inte är samma som bokstaven i wordTwo
+            diffcount++
+
+        return true;
+
+        ELSE return false
+
+        END IF ELSE
+
+    END LOOP
+
 END FUNCTION
 
-WHILE startordet inte är detsamma som slutordet
-    PRINT startordet är 'startOrd'
-    INPUT användaren skriver in ett ord som placeras i nyttOrd
+FUNCTION finnsIOrdbok(ord, ordbok)
 
-    IF isOneLetterApart(startord, nyttOrd) är 1 och finnsIOrdbok(nyttOrd, ordbok) är sant
-        SET startordet = nyttOrd
-    ELSE
-        Skriv ut "Ogiltigt ord, försök igen!"
+    IF nyttOrd finns i ordbok
+        PRINT "Bra jobbat ditt ord finns i ordboken!"
+    ELSe
+        PRINT "Ditt ord finns inte i ordboken"
+        return false
+
     END IF ELSE
+
+END FUNCTION
+
+LOOP startordet inte är detsamma som slutordet
+    PRINT startordet är 'startOrd'
+    INPUT användaren skriver in ett ord som placeras i inmatning
+    gissningar ++
+
+    IF finnsIOrdbok(inmatning, ordbok) är sant och isOneLetterApart(startord, inmatning) är 1
+        SET startordet = inmatning
+        PRINT "Korrekt!"
+
+        ELSE
+        Skriv ut "Ogiltig inmatning, försök igen!"
+        
+        END IF ELSE
 
 PRINT "Grattis, du har nått slutordet!"
 
 END LOOP
 
-FUNKTION isOneLetterApart(wordOne, wordTwo)
-    SET variabel diffCount till 0;
-
-    FOR varje position i ord1
-        IF bokstaven i wordOne inte är samma som bokstaven i wordTwo
-            diffcount++
-        return diffCount === 1; // returnerar sant om endast en bokstav ändrats, annars falskt
-    END LOOP
-
-END FUNCTION
-
-FUNCTIOn finnsIOrdbok(nyttOrd, ordbok)
-    IF nyttOrd finns i ordbok
-        Returnera sant
-    ELSe
-        PRINT "Ditt ord finns inte i ordboken"
-        Returnera falskt
-
-    END IF ELSE
-END FUNCTION
 */
